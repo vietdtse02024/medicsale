@@ -1,7 +1,7 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
-$customerId = isset($_GET['customerId']) ? $_GET['customerId'] : null;
-$queryUpdate = "UPDATE Customer SET ActiveFlg = 0 WHere ID = ".$customerId;
+$staffId = isset($_GET['staffId']) ? $_GET['staffId'] : null;
+$queryUpdate = "UPDATE `USER` SET ActiveFlg = 0 WHERE ID = ".$staffId;
 try {
 
     $conn->autocommit(FALSE); // i.e., start transaction

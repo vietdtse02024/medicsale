@@ -1,4 +1,4 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
 $storeName = isset($_POST['storeName']) ? $_POST['storeName'] : null;
 $storeAddress = isset($_POST['storeAddress']) ? $_POST['storeAddress'] : null;

@@ -1,4 +1,4 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
 $roleId = isset($_GET['roleId']) ? $_GET['roleId'] : null;
 $sql = "SELECT A.RightName, A.Description, B.ScreenID FROM `Right` A LEFT JOIN UserRight B ON A.ID = B.RightID WHERE A.ActiveFlg = 1 AND A.ID = ".$roleId;

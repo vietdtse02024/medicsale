@@ -1,4 +1,4 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
 $jsonData = isset($_POST['mydata']) ? json_decode($_POST['mydata'], true) : null;
 $password = isset($jsonData['password']) ? $jsonData['password'] : null;

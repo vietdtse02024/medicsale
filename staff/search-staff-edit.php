@@ -1,4 +1,4 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
 $staffId = isset($_GET['staffId']) ? $_GET['staffId'] : null;
 $sql = "SELECT A.*, B.ID, B.RightName FROM `USER` A INNER JOIN `Right` B ON A.RIGHT_ID = B.ID WHERE A.ID = ".$staffId;

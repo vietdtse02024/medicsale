@@ -1,6 +1,6 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
-$sql = "select * from `right` where ActiveFlg = 1 ";
+$sql = "select * from setting_med limit 1";
 $result = $conn->query($sql);
 $array = array();
 while($row = $result->fetch_assoc())

@@ -1,4 +1,4 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
 $productId = isset($_GET['productId']) ? (int) $_GET['productId'] : null;
 $sql = "SELECT Product.ID,ProductCode ,Serial, ProductName ,Country.CountryName, Product.CountryID, Product.ProducterID, Product.Supplier AS 'SupplierID', Product.GroupID,
@@ -13,7 +13,7 @@ $sql = "SELECT Product.ID,ProductCode ,Serial, ProductName ,Country.CountryName,
 if ($productId != null && $productId != -1) {
 	$sql = $sql." AND Product.ID = ".$productId;
 }
-$sql = $sql." ORDER BY ProductName LIMIT 100";
+$sql = $sql." ORDER BY ProductName ";
 $result = $conn->query($sql);
 $array = array();
 while($row = $result->fetch_assoc())
@@ -23,11 +23,9 @@ while($row = $result->fetch_assoc())
 
 // Finally, encode the array to JSON and output the results
 
-if (!empty($array)) {
-    $data = ["data" => $array, "type" => "DATA"];
-} else {
-	$data = ["result" => "ERROR"];
-}
+
+$data = ["data" => $array, "type" => "DATA"];
+
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
 
 $conn->close();

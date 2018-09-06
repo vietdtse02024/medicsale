@@ -1,4 +1,4 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
 $doctorId = isset($_GET['doctorId']) ? (int) $_GET['doctorId'] : null;
 
@@ -18,11 +18,7 @@ while($row = $result->fetch_assoc())
 
 // Finally, encode the array to JSON and output the results
 
-if (!empty($array)) {
-    $data = ["data" => $array, "type" => "DATA"];
-} else {
-	$data = ["result" => "ERROR"];
-}
+$data = ["data" => $array, "type" => "DATA"];
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
 
 $conn->close();

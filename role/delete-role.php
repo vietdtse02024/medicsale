@@ -1,4 +1,4 @@
-<?php include 'config.php';?>
+<?php include '../config.php';?>
 <?php
 $roleId = isset($_GET['roleId']) ? $_GET['roleId'] : null;
 $queryUpdateRight = "DELETE FROM `Right` WHERE ID = ".$roleId;
