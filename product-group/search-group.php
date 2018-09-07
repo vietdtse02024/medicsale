@@ -1,6 +1,6 @@
 <?php include '../config.php';?>
 <?php
-$sql = "SELECT * FROM ProductGroup WHERE ActiveFlg = 1 ORDER BY DESC";
+$sql = "SELECT * FROM ProductGroup WHERE ActiveFlg = 1 ORDER BY ID DESC";
 $result = $conn->query($sql);
 $array = array();
 while($row = $result->fetch_assoc())
