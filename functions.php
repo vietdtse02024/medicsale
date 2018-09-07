@@ -1,12 +1,19 @@
 <?php include 'config.php';?>
 <?php
 
-if(isset($_GET['function'])) {
-	$functionName = $_GET['function'];
-	if(strcmp($functionName, "ProductDataTableEdit") == 0) {
-		$productId = isset($_GET['productId']) ? (int) $_GET['productId'] : null;
-		getProductSellTypeData($productId);
+try {
+	if(isset($_GET['function'])) {
+		$functionName = $_GET['function'];
+		if(strcmp($functionName, "ProductDataTableEdit") == 0) {
+			$productId = isset($_GET['productId']) ? (int) $_GET['productId'] : null;
+			getProductSellTypeData($productId);
+		}
 	}
+} catch ( Exception $e ) {
+	$data = ["result" => "ERROR: ".$e];
+	echo json_encode($data, JSON_UNESCAPED_UNICODE);
+} finally {
+    $conn->close();
 }
 
 function getProductSellTypeData($productId) {
@@ -56,8 +63,6 @@ function getProductSellTypeData($productId) {
 
 	$data = ["sellTypeData" => $sellTypeArray, "productUnitData" => $productUnitArray, "type" => "DATA"];
 	echo json_encode($data, JSON_UNESCAPED_UNICODE);
-
-	$conn->close();
 }
 
 ?>
